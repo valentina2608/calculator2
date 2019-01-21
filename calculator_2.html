@@ -1,0 +1,98 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>Обчислення математичних функцій</title>
+<script src='../vue.min.js'></script>
+<style>
+#calculator{margin:0 auto;
+width:600px;
+height:600px;
+background-color:lightgrey;
+}
+.numbers{margin:20px 10px 10px;
+float:left;}
+
+.chislo{color:darkred;
+font-weight:bold;}
+
+.result{margin:10px 10px 10px;
+float:left;}
+
+.result p {color:#0b0245;
+font-weight:bold;}
+
+.text{text-align:center;
+font-weight:bold;
+font-size:20px;
+color:darkred;}
+
+</style>
+</head>
+<body>
+<div id="calculator">
+<div class="numbers">
+<span class="chislo">Перше число:</span> <input type="number" v-model="number1">
+<span class="chislo">Друге число:</span> <input type="number" v-model="number2">
+</div>
+<div class="result">
+<p>Сума:{{sum()}}</p>
+<p>Різниця:{{difference()}}</p>
+<p>Добуток:{{product()}}</p>
+<p>Частка:{{fraction()}}</p>
+<p>Піднесення числа до степеня:{{power()}}</p>
+<p class="text">Обчислення математичних функцій</p>
+<span class="chislo">Введіть число:</span>
+ <input type="number" v-model="number3">
+<p>Квадратний корінь:{{square()}}</p>
+<p>Модуль:{{module()}}</p>
+<p>Синус:{{sine()}}</p>
+<p>Косинус:{{cosine()}}</p>
+<p>Тангенс:{{tangent()}}</p>
+</div>
+</div>
+<script>
+var app = new Vue({
+el:'#calculator',
+data:{
+number1:0,
+number2:0,
+number3:0
+},
+methods:{
+sum:function(){
+return +this.number1 + +this.number2;
+},
+difference:function(){
+return this.number1 - this.number2;
+},
+product:function(){
+return this.number1*this.number2;
+},
+fraction:function(){
+return this.number1/this.number2;
+},
+power:function(){
+return Math.pow(this.number1, this.number2);
+},
+square:function(){
+return Math.sqrt(this.number3);
+},
+module:function(){
+return Math.abs(this.number3);
+},
+sine:function(){
+return Math.sin(this.number3);
+},
+cosine:function(){
+return Math.cos(this.number3);
+},
+tangent:function(){
+return Math.tan(this.number3);
+}
+}
+});
+
+
+</script>
+</body>
+</html>
